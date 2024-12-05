@@ -1,0 +1,14 @@
+======dcker image file ========
+
+FROM ollama/ollama
+EXPOSE 11434
+
+
+=====Run beow commands after logging into docker container ======
+RUN ollama pull mistral:7b-instruct
+RUN ollama run  mistral:7b-instruct
+==============================
+docker exec -it my-llm-cont2 ollama pull mistral:7b-instruct
+docker run -d -p 11434:11434  --name my-llm-cont2 my-llm-image
+docker exec -it my-llm-cont2 ollama run  mistral:7b-instruct
+=======================================
